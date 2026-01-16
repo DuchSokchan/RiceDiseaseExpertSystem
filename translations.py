@@ -15,6 +15,9 @@ TRANSLATIONS = {
         'manage_symptoms': 'Manage Symptoms',
         'manage_users': 'Manage Users',
         'welcome': 'Welcome',
+        'main_menu': 'Main Menu',
+        'user': 'User',
+        'view_website': 'View Website',
         
         # Welcome page
         'welcome_title': 'Rice Disease Expert System',
@@ -144,6 +147,7 @@ TRANSLATIONS = {
         'status': 'Status',
         'active': 'Active',
         'inactive': 'Inactive',
+        'add_new_user': 'Add New User',
         
         # General
         'language': 'Language',
@@ -203,6 +207,9 @@ TRANSLATIONS = {
         'manage_symptoms': 'គ្រប់គ្រងរោគសញ្ញា',
         'manage_users': 'គ្រប់គ្រងអ្នកប្រើ',
         'welcome': 'សូមស្វាគមន៍',
+        'main_menu': 'បញ្ជីមេ',
+        'user': 'អ្នកប្រើប្រាស់',
+        'view_website': 'មើលគេហទំព័រ',
         
         # Welcome page
         'welcome_title': 'ប្រព័ន្ធអ្នកជំនាញជំងឺស្រូវ',
@@ -340,6 +347,7 @@ TRANSLATIONS = {
         'symptom_exists': 'រោគសញ្ញាមានរួចហើយ។',
         'symptom_added': 'បានបន្ថែមរោគសញ្ញាដោយជោគជ័យ!',
         'symptom_deleted': 'បានលុបរោគសញ្ញាដោយជោគជ័យ!',
+        'add_new_user': 'បន្ថែមអ្នកប្រើថ្មី',
         
         # General
         'language': 'ភាសា',
@@ -410,6 +418,43 @@ SYMPTOM_TRANSLATIONS = {
         # English stays the same; mapping retained for clarity
     },
 }
+
+# Disease translations (English -> Khmer)
+DISEASE_TRANSLATIONS = {
+    'km': {
+        # Disease Names
+        'Brown Spot': 'ជំងឺចំនុចពណ៌ត្នោត',
+        'Blast Disease': 'ជំងឺអគ្គិភ័យ (Blast)',
+        'Sheath Blight': 'ជំងឺរលាកស្រោមស្លឹក',
+        'Bacterial Leaf Blight': 'ជំងឺបាក់តេរីរលាកស្លឹក',
+        'False Smut': 'ជំងឺស្ពោធខ្មៅ',
+        'Rice Rust': 'ជំងឺច្រែះស្រូវ',
+        'Powdery Mildew': 'ជំងឺផ្សិតសល្បាយម្សៅ',
+        'Root Rot': 'ជំងឺរលួយឫស',
+        
+        # Descriptions
+        'Caused by Bipolaris oryzae, affects leaves and grains': 'បង្កឡើងដោយមេរោគ Bipolaris oryzae ដែលប៉ះពាល់ដល់ស្លឹកនិងគ្រាប់ស្រូវ',
+        'Caused by Magnaporthe oryzae, most destructive rice disease': 'បង្កឡើងដោយមេរោគ Magnaporthe oryzae ដែលជាជំងឺស្រូវដែលបំផ្លាញខ្លាំងបំផុត',
+        'Caused by Rhizoctonia solani, affects sheaths and leaves': 'បង្កឡើងដោយមេរោគ Rhizoctonia solani ដែលប៉ះពាល់ដល់ស្រោមនិងស្លឹកស្រូវ',
+        'Caused by Xanthomonas oryzae, affects leaves': 'បង្កឡើងដោយមេរោគ Xanthomonas oryzae ដែលប៉ះពាល់ដល់ស្លឹកស្រូវ',
+        'Caused by Ustilaginoidea virens, affects grains': 'បង្កឡើងដោយមេរោគ Ustilaginoidea virens ដែលប៉ះពាល់ដល់គ្រាប់ស្រូវ',
+        'Caused by Puccinia graminis, affects leaves': 'បង្កឡើងដោយមេរោគ Puccinia graminis ដែលប៉ះពាល់ដល់ស្លឹកស្រូវ',
+        'Caused by Erysiphe graminis, affects leaves': 'បង្កឡើងដោយមេរោគ Erysiphe graminis ដែលប៉ះពាល់ដល់ស្លឹកស្រូវ',
+        'Caused by various fungi, affects roots': 'បង្កឡើងដោយផ្សិតផ្សេងៗ ដែលប៉ះពាល់ដល់ឫសស្រូវ',
+        
+        # Treatment Recommendations
+        'Use resistant varieties, apply fungicides like propiconazole': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, បាញ់ថ្នាំសម្លាប់ផ្សិតដូចជា propiconazole',
+        'Use resistant varieties, avoid excessive nitrogen, apply tricyclazole': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, ជៀសវាងការប្រើជីអាសូតច្រើនពេក, បាញ់ថ្នាំ tricyclazole',
+        'Use resistant varieties, proper spacing, apply validamycin': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, ដាំដុះក្នុងចន្លោះសមស្រប, បាញ់ថ្នាំ validamycin',
+        'Use resistant varieties, avoid overhead irrigation, apply copper-based bactericides': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, ជៀសវាងការស្រោចស្រពពីលើ, ប្រើថ្នាំបាក់តេរីដែលមានមូលដ្ឋានពីទង់ដែង',
+        'Use resistant varieties, proper field drainage, apply propiconazole': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, រៀបចំប្រព័ន្ធបង្ហូរទឹកឱ្យបានល្អ, បាញ់ថ្នាំ propiconazole',
+        'Use resistant varieties, apply fungicides like tebuconazole': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, បាញ់ថ្នាំសម្លាប់ផ្សិតដូចជា tebuconazole',
+        'Use resistant varieties, improve air circulation, apply sulfur-based fungicides': 'ប្រើប្រាស់ពូជដែលធន់នឹងជំងឺ, ធ្វើឱ្យខ្យល់ចេញចូលបានល្អ, បាញ់ថ្នាំផ្សិតដែលមានមូលដ្ឋានពីស៊ុលហ្វ័រ',
+        'Improve drainage, use healthy seeds, apply fungicides to soil': 'កែលម្អប្រព័ន្ធបង្ហូរទឹក, ប្រើប្រាស់គ្រាប់ពូជដែលមានសុខភាពល្អ, ដាក់ថ្នាំសម្លាប់ផ្សិតក្នុងដី',
+    },
+    'en': {}
+}
+
 
 def get_translation(key, lang='en', **kwargs):
     """Get translation for a key in the specified language"""

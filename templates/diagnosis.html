@@ -4,66 +4,63 @@
 
 {% block content %}
 <div class="text-center mb-5">
-    <h2 class="display-5 mb-3">
+    <h2 class="display-5 mb-3 fw-bold text-dark">
         <i class="bi bi-clipboard-check text-primary"></i> {{ t('disease_diagnosis') }}
     </h2>
-    <p class="text-secondary">{{ t('select_symptoms') }}</p>
+    <p class="text-muted lead">{{ t('select_symptoms') }}</p>
 </div>
 
 <form method="POST" action="{{ url_for('diagnosis.diagnosis') }}">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="glass-panel">
-                <div class="p-4 border-bottom" style="border-color: var(--glass-border) !important;">
-                    <h5 class="mb-0 text-primary">
-                        <i class="bi bi-list-check"></i> {{ t('select_symptoms_title') }}
-                    </h5>
-                </div>
-                <div class="p-4">
-                    <div class="row g-3">
-                        {% for symptom in symptoms %}
-                        <div class="col-md-6 col-lg-4">
-                            <div class="form-check p-2 rounded glass-card h-100 d-flex align-items-center">
-                                <input class="form-check-input ms-2 mt-0" type="checkbox" name="symptoms"
-                                    value="{{ symptom.id }}" id="symptom_{{ symptom.id }}"
-                                    style="width: 1.5em; height: 1.5em; cursor: pointer;">
-                                <label class="form-check-label ms-3 w-100 py-2" for="symptom_{{ symptom.id }}"
-                                    style="cursor: pointer;">
-                                    {{ tsym(symptom.name) }}
-                                </label>
-                            </div>
-                        </div>
-                        {% endfor %}
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-white py-3 border-bottom">
+            <h5 class="mb-0 text-primary fw-bold">
+                <i class="bi bi-list-check"></i> {{ t('select_symptoms_title') }}
+            </h5>
+        </div>
+        <div class="card-body p-4">
+            <div class="row g-3">
+                {% for symptom in symptoms %}
+                <div class="col-md-6 col-lg-4">
+                    <div
+                        class="form-check p-3 rounded border h-100 d-flex align-items-center bg-light transition-hover">
+                        <input class="form-check-input ms-0 mt-0" type="checkbox" name="symptoms"
+                            value="{{ symptom.id }}" id="symptom_{{ symptom.id }}"
+                            style="width: 1.25em; height: 1.25em; cursor: pointer;">
+                        <label class="form-check-label ms-3 w-100 fw-medium text-dark" for="symptom_{{ symptom.id }}"
+                            style="cursor: pointer;">
+                            {{ tsym(symptom.name) }}
+                        </label>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary btn-lg px-5">
-                <i class="bi bi-search"></i> {{ t('diagnose_disease') }}
-            </button>
-            <a href="{{ url_for('home.index') }}" class="btn btn-secondary btn-lg ms-3 px-4">
-                <i class="bi bi-arrow-left"></i> {{ t('back_to_home') }}
-            </a>
-        </div>
+    <div class="text-center mt-5">
+        <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm">
+            <i class="bi bi-search"></i> {{ t('diagnose_disease') }}
+        </button>
+        <a href="{{ url_for('home.index') }}" class="btn btn-outline-secondary btn-lg ms-3 px-4 shadow-sm">
+            <i class="bi bi-arrow-left"></i> {{ t('back_to_home') }}
+        </a>
     </div>
 </form>
 
 <div class="row mt-5">
     <div class="col-12">
-        <div class="glass-card p-4">
-            <h5 class="card-title text-warning mb-3">
-                <i class="bi bi-lightbulb"></i> {{ t('tips_accurate_diagnosis') }}
-            </h5>
-            <ul class="mb-0 text-secondary">
-                <li class="mb-2">{{ t('tip1') }}</li>
-                <li class="mb-2">{{ t('tip2') }}</li>
-                <li class="mb-2">{{ t('tip3') }}</li>
-                <li class="mb-2">{{ t('tip4') }}</li>
-            </ul>
+        <div class="card bg-warning bg-opacity-10 border-warning border-opacity-25 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title text-warning fw-bold mb-3">
+                    <i class="bi bi-lightbulb"></i> {{ t('tips_accurate_diagnosis') }}
+                </h5>
+                <ul class="mb-0 text-dark opacity-75">
+                    <li class="mb-2">{{ t('tip1') }}</li>
+                    <li class="mb-2">{{ t('tip2') }}</li>
+                    <li class="mb-2">{{ t('tip3') }}</li>
+                    <li class="mb-2">{{ t('tip4') }}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

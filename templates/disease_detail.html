@@ -4,73 +4,79 @@
 
 {% block content %}
 <div class="mb-4">
-    <a href="{{ url_for('disease.diseases') }}" class="btn btn-secondary mb-3">
+    <a href="{{ url_for('disease.diseases') }}" class="btn btn-outline-secondary mb-3">
         <i class="bi bi-arrow-left"></i> {{ t('back_to_diseases') }}
     </a>
 </div>
 
-<div class="glass-panel p-5 mb-5">
-    <div class="border-bottom pb-4 mb-4" style="border-color: rgba(255,255,255,0.1) !important;">
-        <h2 class="mb-0 text-white">
-            <i class="bi bi-bug text-primary"></i> {{ disease.name }}
+<div class="card shadow-sm border-0 mb-5">
+    <div class="card-header bg-white py-4 border-bottom">
+        <h2 class="mb-0 text-dark fw-bold">
+            <i class="bi bi-bug-fill text-primary"></i> {{ tdis(disease.name) }}
         </h2>
     </div>
 
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <h5 class="text-primary mb-3">
-                <i class="bi bi-info-circle"></i> {{ t('description') }}
-            </h5>
-            <p class="lead text-secondary">{{ disease.description }}</p>
-        </div>
-    </div>
-
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <h5 class="text-success mb-3">
-                <i class="bi bi-list-ul"></i> {{ t('common_symptoms') }}
-            </h5>
-            <div class="mt-2">
-                {% for symptom in disease.symptoms %}
-                <span class="badge bg-success bg-opacity-25 text-success border border-success me-2 mb-2 p-2">
-                    <i class="bi bi-check-circle"></i> {{ tsym(symptom.name) }}
-                </span>
-                {% endfor %}
+    <div class="card-body p-4 p-md-5">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h5 class="text-primary fw-bold mb-3">
+                    <i class="bi bi-info-circle"></i> {{ t('description') }}
+                </h5>
+                <p class="lead text-muted">{{ tdis(disease.description) }}</p>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <h5 class="text-warning mb-3">
-                <i class="bi bi-heart-pulse"></i> {{ t('treatment_recommendations') }}
-            </h5>
-            <div class="glass-card p-4">
-                <p class="mb-0 text-secondary" style="font-size: 1.1em; line-height: 1.8;">
-                    {{ disease.treatment }}
-                </p>
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h5 class="text-success fw-bold mb-3">
+                    <i class="bi bi-list-ul"></i> {{ t('common_symptoms') }}
+                </h5>
+                <div class="d-flex flex-wrap gap-2">
+                    {% for symptom in disease.symptoms %}
+                    <span class="badge bg-light text-dark border p-2 fw-normal">
+                        <i class="bi bi-check-circle text-success"></i> {{ tsym(symptom.name) }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="text-warning fw-bold mb-3">
+                    <i class="bi bi-prescription2"></i> {{ t('treatment_recommendations') }}
+                </h5>
+                <div class="bg-light p-4 rounded border-start border-warning border-4">
+                    <p class="mb-0 text-dark" style="font-size: 1.1em; line-height: 1.8;">
+                        {{ tdis(disease.treatment) }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row g-4 mt-4">
+<div class="row g-4 mt-4 mb-5">
     <div class="col-md-6">
-        <div class="glass-card h-100 p-4 text-center">
-            <h5 class="card-title mb-3">{{ t('start_diagnosis_title') }}</h5>
-            <p class="card-text text-secondary mb-4">{{ t('use_expert_system') }}</p>
-            <a href="{{ url_for('diagnosis.diagnosis') }}" class="btn btn-primary">
-                <i class="bi bi-clipboard-check"></i> {{ t('go_to_diagnosis') }}
-            </a>
+        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-dark mb-3">{{ t('start_diagnosis_title') }}</h5>
+                <p class="card-text text-muted mb-4">{{ t('use_expert_system') }}</p>
+                <a href="{{ url_for('diagnosis.diagnosis') }}" class="btn btn-primary px-4 shadow-sm">
+                    <i class="bi bi-clipboard-check"></i> {{ t('go_to_diagnosis') }}
+                </a>
+            </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="glass-card h-100 p-4 text-center">
-            <h5 class="card-title mb-3">{{ t('view_all_diseases') }}</h5>
-            <p class="card-text text-secondary mb-4">{{ t('browse_complete_database') }}</p>
-            <a href="{{ url_for('disease.diseases') }}" class="btn btn-secondary">
-                <i class="bi bi-book"></i> {{ t('view_all') }}
-            </a>
+        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-dark mb-3">{{ t('view_all_diseases') }}</h5>
+                <p class="card-text text-muted mb-4">{{ t('browse_complete_database') }}</p>
+                <a href="{{ url_for('disease.diseases') }}" class="btn btn-outline-secondary px-4">
+                    <i class="bi bi-book"></i> {{ t('view_all') }}
+                </a>
+            </div>
         </div>
     </div>
 </div>

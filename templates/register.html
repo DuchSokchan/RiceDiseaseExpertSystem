@@ -5,75 +5,79 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5">
-        <div class="glass-panel p-4 p-md-5">
-            <div class="text-center mb-4">
-                <i class="bi bi-person-plus display-4 text-success mb-3"></i>
-                <h3 class="mb-0 fw-bold">{{ t('register') }}</h3>
-                <p class="text-secondary">{{ t('create_free_account') }}</p>
-            </div>
-
-            <form method="POST" action="{{ url_for('auth.register') }}">
-                <div class="mb-3">
-                    <label for="username" class="form-label text-secondary">
-                        <i class="bi bi-person"></i> {{ t('username') }}
-                    </label>
-                    <input type="text" class="form-control" id="username" name="username" required autofocus
-                        placeholder="Choose a username">
-                    <small class="form-text text-secondary opacity-75">{{ t('choose_unique_username') }}</small>
+        <div class="card shadow-sm border-0 mt-5 mb-5">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="bg-success bg-opacity-10 d-inline-block p-4 rounded-circle mb-3">
+                        <i class="bi bi-person-plus display-4 text-success"></i>
+                    </div>
+                    <h3 class="mb-0 fw-bold text-dark">{{ t('register') }}</h3>
+                    <p class="text-muted">{{ t('create_free_account') }}</p>
                 </div>
 
-                <div class="mb-3">
-                    <label for="email" class="form-label text-secondary">
-                        <i class="bi bi-envelope"></i> {{ t('email') }}
-                    </label>
-                    <input type="email" class="form-control" id="email" name="email" required
-                        placeholder="Enter your email">
-                </div>
+                <form method="POST" action="{{ url_for('auth.register') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-dark fw-medium">
+                            <i class="bi bi-person"></i> {{ t('username') }}
+                        </label>
+                        <input type="text" class="form-control bg-light border-0 px-3 py-2" id="username"
+                            name="username" required autofocus placeholder="Choose a username">
+                        <small class="form-text text-muted">{{ t('choose_unique_username') }}</small>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label text-secondary">
-                        <i class="bi bi-lock"></i> {{ t('password') }}
-                    </label>
-                    <input type="password" class="form-control" id="password" name="password" required
-                        placeholder="Create a password">
-                    <small class="form-text text-secondary opacity-75">{{ t('minimum_chars') }}</small>
-                </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-dark fw-medium">
+                            <i class="bi bi-envelope"></i> {{ t('email') }}
+                        </label>
+                        <input type="email" class="form-control bg-light border-0 px-3 py-2" id="email" name="email"
+                            required placeholder="Enter your email">
+                    </div>
 
-                <div class="mb-4">
-                    <label for="confirm_password" class="form-label text-secondary">
-                        <i class="bi bi-lock-fill"></i> {{ t('confirm_password') }}
-                    </label>
-                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required
-                        placeholder="Confirm your password">
-                </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-dark fw-medium">
+                            <i class="bi bi-lock"></i> {{ t('password') }}
+                        </label>
+                        <input type="password" class="form-control bg-light border-0 px-3 py-2" id="password"
+                            name="password" required placeholder="Create a password">
+                        <small class="form-text text-muted">{{ t('minimum_chars') }}</small>
+                    </div>
 
-                {% if current_user.is_authenticated and current_user.is_admin() %}
-                <div class="mb-4">
-                    <label for="role" class="form-label text-secondary">
-                        <i class="bi bi-shield-check"></i> {{ t('role') }}
-                    </label>
-                    <select class="form-select" id="role" name="role">
-                        <option value="end-user">{{ t('end_user') }}</option>
-                        <option value="admin">{{ t('admin_role') }}</option>
-                    </select>
-                </div>
-                {% else %}
-                <input type="hidden" name="role" value="end-user">
-                {% endif %}
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label text-dark fw-medium">
+                            <i class="bi bi-lock-fill"></i> {{ t('confirm_password') }}
+                        </label>
+                        <input type="password" class="form-control bg-light border-0 px-3 py-2" id="confirm_password"
+                            name="confirm_password" required placeholder="Confirm your password">
+                    </div>
 
-                <div class="d-grid mb-4">
-                    <button type="submit" class="btn btn-success btn-lg">
-                        <i class="bi bi-person-plus"></i> {{ t('register') }}
-                    </button>
-                </div>
-            </form>
+                    {% if current_user.is_authenticated and current_user.is_admin() %}
+                    <div class="mb-4">
+                        <label for="role" class="form-label text-dark fw-medium">
+                            <i class="bi bi-shield-check"></i> {{ t('role') }}
+                        </label>
+                        <select class="form-select bg-light border-0 px-3 py-2" id="role" name="role">
+                            <option value="end-user">{{ t('end_user') }}</option>
+                            <option value="admin">{{ t('admin_role') }}</option>
+                        </select>
+                    </div>
+                    {% else %}
+                    <input type="hidden" name="role" value="end-user">
+                    {% endif %}
 
-            <div class="text-center border-top border-secondary pt-4"
-                style="border-color: rgba(255,255,255,0.1) !important;">
-                <p class="mb-0 text-secondary">{{ t('have_account') }}</p>
-                <a href="{{ url_for('auth.login') }}" class="btn btn-link text-primary text-decoration-none">
-                    {{ t('login') }} <i class="bi bi-arrow-right"></i>
-                </a>
+                    <div class="d-grid mb-4">
+                        <button type="submit" class="btn btn-success btn-lg shadow-sm">
+                            <i class="bi bi-person-plus"></i> {{ t('register') }}
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-center border-top pt-4">
+                    <p class="mb-0 text-muted small">{{ t('have_account') }}</p>
+                    <a href="{{ url_for('auth.login') }}"
+                        class="btn btn-link text-primary text-decoration-none fw-bold">
+                        {{ t('login') }} <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

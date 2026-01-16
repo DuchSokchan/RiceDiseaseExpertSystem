@@ -56,7 +56,7 @@ def init_admin_controller(db_instance, disease_model, symptom_model, user_model,
     def users():
         """Admin: Manage users"""
         users_list = User.query.all()
-        return render_template('admin/users.html', users=users_list)
+        return render_template('admin/users/users.html', users=users_list)
     
     @admin_bp.route('/disease/add', methods=['GET', 'POST'])
     @admin_required

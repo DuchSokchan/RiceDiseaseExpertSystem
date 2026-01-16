@@ -3,102 +3,118 @@
 {% block title %}Welcome - Rice Disease Expert System{% endblock %}
 
 {% block content %}
-<div class="landing-hero text-center">
+<div class="py-5 text-center">
     <!-- Animated Badge -->
-    <div class="animate__animated animate__fadeInDown">
-        <span class="hero-badge">
+    <div class="animate__animated animate__fadeInDown mb-3">
+        <span
+            class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2 border border-primary border-opacity-25">
             <i class="bi bi-stars me-2"></i> Artificial Intelligence Powered
         </span>
     </div>
 
     <!-- Main Title -->
-    <h1 class="hero-title animate__animated animate__fadeInUp">
+    <h1 class="display-3 fw-bold text-dark mb-4 animate__animated animate__fadeInUp">
         {{ t('welcome_title') }}
     </h1>
 
     <!-- Subtitle -->
-    <p class="hero-subtitle animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+    <p class="lead text-muted mx-auto mb-5 animate__animated animate__fadeInUp"
+        style="max-width: 700px; animation-delay: 0.1s;">
         {{ t('welcome_subtitle') }}
     </p>
 
     <!-- CTAs -->
-    <div class="d-flex gap-3 justify-content-center animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg px-5 py-3">
+    <div class="d-flex gap-3 justify-content-center animate__animated animate__fadeInUp mb-5"
+        style="animation-delay: 0.2s;">
+        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg px-4 shadow-sm">
             <i class="bi bi-person-plus me-2"></i> {{ t('create_free_account') }}
         </a>
-        <a href="{{ url_for('auth.login') }}" class="btn btn-secondary btn-lg px-5 py-3">
+        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-lg px-4 shadow-sm">
             <i class="bi bi-box-arrow-in-right me-2"></i> {{ t('login') }}
         </a>
     </div>
 </div>
 
 <!-- Features Grid -->
-<div class="row g-4 mb-5 pb-5">
+<div class="row g-4 mb-5">
     <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-        <div class="feature-card">
-            <div class="feature-icon-wrapper">
-                <i class="bi bi-clipboard-check"></i>
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+            <div class="card-body">
+                <div class="mb-4 text-primary">
+                    <i class="bi bi-clipboard-check display-4"></i>
+                </div>
+                <h4 class="fw-bold mb-3">{{ t('quick_diagnosis') }}</h4>
+                <p class="text-muted mb-0">{{ t('quick_diagnosis_desc') }}</p>
             </div>
-            <h4 class="fw-bold mb-3">{{ t('quick_diagnosis') }}</h4>
-            <p class="text-secondary mb-0">{{ t('quick_diagnosis_desc') }}</p>
         </div>
     </div>
     <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-        <div class="feature-card">
-            <div class="feature-icon-wrapper">
-                <i class="bi bi-database-check"></i>
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+            <div class="card-body">
+                <div class="mb-4 text-primary">
+                    <i class="bi bi-database-check display-4"></i>
+                </div>
+                <h4 class="fw-bold mb-3">{{ t('disease_database') }}</h4>
+                <p class="text-muted mb-0">{{ t('disease_database_desc') }}</p>
             </div>
-            <h4 class="fw-bold mb-3">{{ t('disease_database') }}</h4>
-            <p class="text-secondary mb-0">{{ t('disease_database_desc') }}</p>
         </div>
     </div>
     <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-        <div class="feature-card">
-            <div class="feature-icon-wrapper">
-                <i class="bi bi-cpu"></i>
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+            <div class="card-body">
+                <div class="mb-4 text-primary">
+                    <i class="bi bi-cpu display-4"></i>
+                </div>
+                <h4 class="fw-bold mb-3">{{ t('expert_system') }}</h4>
+                <p class="text-muted mb-0">{{ t('expert_system_desc') }}</p>
             </div>
-            <h4 class="fw-bold mb-3">{{ t('expert_system') }}</h4>
-            <p class="text-secondary mb-0">{{ t('expert_system_desc') }}</p>
         </div>
     </div>
 </div>
 
 <!-- How It Works Section -->
-<div class="glass-panel p-5 mb-5 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-    <div class="text-center mb-5">
-        <h3 class="fw-bold">{{ t('how_it_works') }}</h3>
-        <p class="text-secondary">Simple 5-step process to healthy crops</p>
-    </div>
+<div class="card shadow-sm border-0 mb-5 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+    <div class="card-body p-5">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold text-dark">{{ t('how_it_works') }}</h3>
+            <p class="text-muted">Simple 5-step process to healthy crops</p>
+        </div>
 
-    <div class="row g-4 text-center">
-        <div class="col-md">
-            <div class="step-card">
-                <div class="mx-auto step-number">1</div>
-                <h6 class="fw-bold">{{ t('step1') }}</h6>
+        <div class="row g-4 text-center">
+            <div class="col-md">
+                <div class="mb-3">
+                    <span class="badge rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4"
+                        style="width: 60px; height: 60px; line-height: 28px;">1</span>
+                </div>
+                <h6 class="fw-bold text-dark">{{ t('step1') }}</h6>
             </div>
-        </div>
-        <div class="col-md">
-            <div class="step-card">
-                <div class="mx-auto step-number">2</div>
-                <h6 class="fw-bold">{{ t('step2') }}</h6>
+            <div class="col-md">
+                <div class="mb-3">
+                    <span class="badge rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4"
+                        style="width: 60px; height: 60px; line-height: 28px;">2</span>
+                </div>
+                <h6 class="fw-bold text-dark">{{ t('step2') }}</h6>
             </div>
-        </div>
-        <div class="col-md">
-            <div class="step-card">
-                <div class="mx-auto step-number">3</div>
-                <h6 class="fw-bold">{{ t('step3') }}</h6>
+            <div class="col-md">
+                <div class="mb-3">
+                    <span class="badge rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4"
+                        style="width: 60px; height: 60px; line-height: 28px;">3</span>
+                </div>
+                <h6 class="fw-bold text-dark">{{ t('step3') }}</h6>
             </div>
-        </div>
-        <div class="col-md">
-            <div class="step-card">
-                <div class="mx-auto step-number">4</div>
-                <h6 class="fw-bold">{{ t('step4') }}</h6>
+            <div class="col-md">
+                <div class="mb-3">
+                    <span class="badge rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4"
+                        style="width: 60px; height: 60px; line-height: 28px;">4</span>
+                </div>
+                <h6 class="fw-bold text-dark">{{ t('step4') }}</h6>
             </div>
-        </div>
-        <div class="col-md">
-            <div class="step-card">
-                <div class="mx-auto step-number">5</div>
-                <h6 class="fw-bold">{{ t('step5') }}</h6>
+            <div class="col-md">
+                <div class="mb-3">
+                    <span class="badge rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4"
+                        style="width: 60px; height: 60px; line-height: 28px;">5</span>
+                </div>
+                <h6 class="fw-bold text-dark">{{ t('step5') }}</h6>
             </div>
         </div>
     </div>

@@ -22,3 +22,15 @@ def translate_symptom(symptom_name, lang):
         return SYMPTOM_TRANSLATIONS.get('km', {}).get(symptom_name, symptom_name)
     return symptom_name
 
+def translate_disease(text, lang):
+    """
+    Translate disease name, description or treatment based on selected language.
+    Falls back to the original text if no translation is found.
+    """
+    from translations import DISEASE_TRANSLATIONS
+    if not text:
+        return ''
+    if lang == 'km':
+        return DISEASE_TRANSLATIONS.get('km', {}).get(text, text)
+    return text
+

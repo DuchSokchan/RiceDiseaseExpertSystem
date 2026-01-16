@@ -36,10 +36,12 @@ def create_app(config_class=Config):
     @app.context_processor
     def inject_language():
         """Make translation function available to all templates"""
+        from utils.helpers import translate_disease
         lang = get_language()
         return dict(
             t=lambda key, **kwargs: get_translation(key, lang, **kwargs),
             tsym=lambda name: translate_symptom(name, lang),
+            tdis=lambda text: translate_disease(text, lang),
             current_lang=lang
         )
     
