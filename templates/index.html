@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Rice Disease Expert System{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <div class="mb-4">
+        <i class="bi bi-flower1 hero-icon"></i>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">
+        {{ t('welcome_title') }}
+    </h1>
+    <p class="lead text-secondary">
+        {{ t('welcome_subtitle') }}
+    </p>
+</div>
+
+<div class="row mb-5 g-4">
+    <div class="col-md-4">
+        <div class="glass-card h-100 p-4 text-center">
+            <i class="bi bi-clipboard-check feature-icon mb-3"></i>
+            <h5 class="card-title">{{ t('quick_diagnosis') }}</h5>
+            <p class="card-text text-secondary mb-4">{{ t('quick_diagnosis_desc') }}</p>
+            <a href="{{ url_for('diagnosis.diagnosis') }}" class="btn btn-primary">
+                {{ t('start_diagnosis') }} <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card h-100 p-4 text-center">
+            <i class="bi bi-book feature-icon mb-3"></i>
+            <h5 class="card-title">{{ t('disease_database') }}</h5>
+            <p class="card-text text-secondary mb-4">{{ t('disease_database_desc') }}</p>
+            <a href="{{ url_for('disease.diseases') }}" class="btn btn-success">
+                {{ t('view_all_diseases') }} <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card h-100 p-4 text-center">
+            <i class="bi bi-cpu feature-icon mb-3"></i>
+            <h5 class="card-title">{{ t('expert_system') }}</h5>
+            <p class="card-text text-secondary mb-4">{{ t('expert_system_desc') }}</p>
+            <a href="{{ url_for('diagnosis.diagnosis') }}" class="btn btn-secondary">
+                {{ t('learn_more') }} <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="mb-4 border-bottom border-secondary pb-2" style="border-color: rgba(255,255,255,0.1) !important;">
+            {{ t('common_diseases') }}
+        </h3>
+        <div class="row g-4">
+            {% for disease in diseases[:6] %}
+            <div class="col-md-4">
+                <div class="glass-card h-100 p-4">
+                    <h5 class="card-title mb-3 text-primary">
+                        <i class="bi bi-bug"></i> {{ disease.name }}
+                    </h5>
+                    <p class="card-text text-secondary">{{ disease.description[:100] }}...</p>
+                    <a href="{{ url_for('disease.disease_detail', disease_id=disease.id) }}"
+                        class="btn btn-sm btn-secondary mt-3">
+                        {{ t('view_details') }} <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if diseases|length > 6 %}
+        <div class="text-center mt-4">
+            <a href="{{ url_for('disease.diseases') }}" class="btn btn-primary">
+                {{ t('view_all_diseases') }} <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="glass-panel p-4">
+            <h5 class="card-title mb-4">
+                <i class="bi bi-info-circle text-primary"></i> {{ t('how_it_works') }}
+            </h5>
+            <ol class="text-secondary">
+                <li class="mb-2"><strong>{{ t('select_symptoms_step') }}</strong></li>
+                <li class="mb-2"><strong>{{ t('expert_analysis_step') }}</strong></li>
+                <li class="mb-2"><strong>{{ t('get_results_step') }}</strong></li>
+                <li class="mb-2"><strong>{{ t('take_action_step') }}</strong></li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}

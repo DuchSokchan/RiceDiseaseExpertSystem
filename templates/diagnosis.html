@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnosis - Rice Disease Expert System{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h2 class="display-5 mb-3">
+        <i class="bi bi-clipboard-check text-primary"></i> {{ t('disease_diagnosis') }}
+    </h2>
+    <p class="text-secondary">{{ t('select_symptoms') }}</p>
+</div>
+
+<form method="POST" action="{{ url_for('diagnosis.diagnosis') }}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="glass-panel">
+                <div class="p-4 border-bottom" style="border-color: var(--glass-border) !important;">
+                    <h5 class="mb-0 text-primary">
+                        <i class="bi bi-list-check"></i> {{ t('select_symptoms_title') }}
+                    </h5>
+                </div>
+                <div class="p-4">
+                    <div class="row g-3">
+                        {% for symptom in symptoms %}
+                        <div class="col-md-6 col-lg-4">
+                            <div class="form-check p-2 rounded glass-card h-100 d-flex align-items-center">
+                                <input class="form-check-input ms-2 mt-0" type="checkbox" name="symptoms"
+                                    value="{{ symptom.id }}" id="symptom_{{ symptom.id }}"
+                                    style="width: 1.5em; height: 1.5em; cursor: pointer;">
+                                <label class="form-check-label ms-3 w-100 py-2" for="symptom_{{ symptom.id }}"
+                                    style="cursor: pointer;">
+                                    {{ tsym(symptom.name) }}
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg px-5">
+                <i class="bi bi-search"></i> {{ t('diagnose_disease') }}
+            </button>
+            <a href="{{ url_for('home.index') }}" class="btn btn-secondary btn-lg ms-3 px-4">
+                <i class="bi bi-arrow-left"></i> {{ t('back_to_home') }}
+            </a>
+        </div>
+    </div>
+</form>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="glass-card p-4">
+            <h5 class="card-title text-warning mb-3">
+                <i class="bi bi-lightbulb"></i> {{ t('tips_accurate_diagnosis') }}
+            </h5>
+            <ul class="mb-0 text-secondary">
+                <li class="mb-2">{{ t('tip1') }}</li>
+                <li class="mb-2">{{ t('tip2') }}</li>
+                <li class="mb-2">{{ t('tip3') }}</li>
+                <li class="mb-2">{{ t('tip4') }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add some interactivity
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            if (checkedCount > 0) {
+                console.log(`${checkedCount} symptom(s) selected`);
+            }
+        });
+    });
+</script>
+{% endblock %}

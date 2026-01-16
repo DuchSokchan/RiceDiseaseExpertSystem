@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Add Symptom - Admin{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-plus-circle"></i> Add New Symptom
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('admin.add_symptom') }}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Symptom Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" required 
+                               placeholder="e.g., Yellowing of leaves">
+                        <small class="form-text text-muted">Enter a clear description of the symptom</small>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('admin.symptoms') }}" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle"></i> Add Symptom
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
