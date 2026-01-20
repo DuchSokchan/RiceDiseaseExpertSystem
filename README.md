@@ -30,12 +30,10 @@ A Flask-based web application that uses an expert system to diagnose rice diseas
    ```bash
    pip install -r requirements.txt
    ```
-
 3. **Run the application**:
    ```bash
    python app.py
    ```
-
 4. **Access the application**:
    Open your browser and navigate to `http://localhost:5000`
 
