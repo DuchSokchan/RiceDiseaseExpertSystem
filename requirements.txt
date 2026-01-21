@@ -1,10 +1,29 @@
+/* for web framework */
 Flask==3.0.0
+
+/* Engine database */
 SQLAlchemy>=2.0.25
+
+/* for database ORM */
 Flask-SQLAlchemy==3.1.1
+
+/* for authentication */
 Flask-Login==0.6.3
+
+/* for handle hashing data */
 Werkzeug==3.0.1
+
+/* for templating */
 Jinja2==3.1.2
+
+/* for MySQL database */
 pymysql
+
+/* for secure connections */
 cryptography
+
+/* for production server */
 gunicorn
+
+/* for PostgreSQL database */
 psycopg2-binary
